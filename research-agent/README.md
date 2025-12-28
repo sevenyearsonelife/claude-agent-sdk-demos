@@ -30,7 +30,7 @@ Then ask: "Research quantum computing developments in 2025"
 | Agent | Tools | Purpose |
 |-------|-------|---------|
 | **Lead Agent** | `Task` | Coordinates research, delegates to subagents |
-| **Researcher** | `WebSearch`, `Write` | Gathers information from the web |
+| **Researcher** | `mcp__tavily__tavily-search`, `Write` | Gathers information from the web (via Tavily MCP) |
 | **Data Analyst** | `Glob`, `Read`, `Bash`, `Write` | Extracts metrics, generates charts |
 | **Report Writer** | `Skill`, `Write`, `Glob`, `Read`, `Bash` | Creates PDF reports with embedded visuals |
 
@@ -73,7 +73,7 @@ The system tracks all tool calls using SDK hooks.
 ### What Gets Tracked
 
 - **Who**: Which agent (RESEARCHER-1, DATA-ANALYST-1, etc.)
-- **What**: Tool name (WebSearch, Write, Bash, etc.)
+- **What**: Tool name (mcp__tavily__tavily-search, Write, Bash, etc.)
 - **When**: Timestamp
 - **Input/Output**: Parameters and results
 
@@ -97,7 +97,7 @@ The `parent_tool_use_id` links tool calls to their subagent:
 
 **transcript.txt** - Human-readable:
 ```
-[RESEARCHER-1] → WebSearch
+[RESEARCHER-1] → mcp__tavily__tavily-search
     Input: query='quantum computing 2025'
 [DATA-ANALYST-1] → Bash
     Input: python matplotlib chart generation
@@ -105,6 +105,6 @@ The `parent_tool_use_id` links tool calls to their subagent:
 
 **tool_calls.jsonl** - Structured JSON:
 ```json
-{"event":"tool_call_start","agent_id":"RESEARCHER-1","tool_name":"WebSearch",...}
+{"event":"tool_call_start","agent_id":"RESEARCHER-1","tool_name":"mcp__tavily__tavily-search",...}
 {"event":"tool_call_complete","success":true,"output_size":15234}
 ```

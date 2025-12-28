@@ -59,7 +59,8 @@ async def chat():
                 "for later use by report writers. Ideal for complex research tasks "
                 "that require deep searching and cross-referencing."
             ),
-            tools=["WebSearch", "Write"],
+            # Tavily MCP（tool 名：mcp__tavily__tavily-search）
+            tools=["mcp__tavily__tavily-search", "Write"],
             prompt=researcher_prompt,
             model="haiku"
         ),
@@ -108,7 +109,8 @@ async def chat():
 
     options = ClaudeAgentOptions(
         permission_mode="bypassPermissions",
-        setting_sources=["project"],  # Load skills from project .claude directory
+        # 允许加载用户级 MCP 配置（例如 Tavily MCP），否则仅 project 会导致 MCP tools 不可用
+        setting_sources=["user", "project"],
         system_prompt=lead_agent_prompt,
         allowed_tools=["Task"],
         agents=agents,

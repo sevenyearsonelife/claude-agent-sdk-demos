@@ -28,7 +28,7 @@ Task: Spawn specialized subagents (researcher, data-analyst, or report-writer) w
 - Use Task tool to spawn 2-4 researcher subagents simultaneously
 - Give EACH researcher a specific, focused subtopic to investigate
 - Make instructions clear and specific (what to research, what to focus on)
-- Researchers will use WebSearch and save findings to files/research_notes/
+- Researchers will use Tavily MCP (`mcp__tavily__tavily-search`) and save findings to files/research_notes/
 
 Example subtopics breakdown:
 - User asks: "Research quantum computing"
