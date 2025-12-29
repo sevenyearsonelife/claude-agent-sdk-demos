@@ -111,6 +111,7 @@ async def chat():
         permission_mode="bypassPermissions",
         # 允许加载用户级 MCP 配置（例如 Tavily MCP），否则仅 project 会导致 MCP tools 不可用
         setting_sources=["user", "project"],
+        #setting_sources=["project"],
         system_prompt=lead_agent_prompt,
         allowed_tools=["Task"],
         agents=agents,
