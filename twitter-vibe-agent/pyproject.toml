@@ -1,0 +1,19 @@
+[project]
+name = "twitter-vibe-agent"
+version = "0.1.0"
+description = "Multi-agent Twitter posting automation using Claude Agent SDK"
+readme = "README.md"
+license = { text = "MIT" }
+keywords = ["claude", "agent", "twitter", "llm", "interview", "automation"]
+requires-python = ">=3.10"
+dependencies = [
+    "claude-agent-sdk>=0.1.0",
+    "python-dotenv>=1.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["twitter_vibe_agent*"]

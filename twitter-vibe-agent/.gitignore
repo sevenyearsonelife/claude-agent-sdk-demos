@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# uv
+uv.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+
+# Files folder structure (track folders, ignore contents)
+files/*
+!files/source_articles/
+!files/dialogue_records/
+!files/organized/
+!files/generated_posts/
+!files/optimized_posts/
+!files/**/.gitkeep
+
+# Session logs (ignore contents but track directory)
+logs/*
+!logs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
