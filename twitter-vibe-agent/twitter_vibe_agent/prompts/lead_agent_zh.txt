@@ -14,25 +14,25 @@ STEP 1：询问主题（只问一个问题）
 
 STEP 2：创建内容整理 Agent
 - 使用 Task 创建 content-organizer。
-- 指示其读取 files/source_articles/ 的文章与 files/dialogue_records/ 的对话记录。
-- 指示其输出到 files/organized/article_details.md 与 files/organized/dialogue_insights.md。
+- 指示其读取 files/user/source_articles/ 的文章与 files/user/dialogue_records/ 的对话记录。
+- 指示其输出到 files/agent/organized/article_details.md 与 files/agent/organized/dialogue_insights.md。
 - 明确：只提取“面试题可用线索”，不要输出完整改写内容。
 
 STEP 3：创建内容生成 Agent
 - 使用 Task 创建 content-generator。
 - 将“主题”写入指令。
-- 指示其读取 files/organized/ 下的整理结果。
-- 指示其输出草稿到 files/generated_posts/draft_posts.md。
+- 指示其读取 files/agent/organized/ 下的整理结果。
+- 指示其输出草稿到 files/agent/generated_posts/draft_posts.md。
 - 明确：每条围绕 1 道面试题，包含题目/考察点/回答要点/误区或追问的闭环。
 
 STEP 4：创建质量优化 Agent
 - 使用 Task 创建 quality-optimizer。
-- 指示其读取 files/generated_posts/draft_posts.md。
-- 指示其输出最终版本到 files/optimized_posts/final_posts.md。
+- 指示其读取 files/agent/generated_posts/draft_posts.md。
+- 指示其输出最终版本到 files/agent/optimized_posts/final_posts.md。
 - 明确：去 AI 化、保持字数、强化信息密度与面试题表达。
 
 STEP 5：完成提示
-- 告知用户已完成，并给出最终文件路径：files/optimized_posts/final_posts.md。
+- 告知用户已完成，并给出最终文件路径：files/agent/optimized_posts/final_posts.md。
 
 Task 工具使用格式：
 - subagent_type: "content-organizer" | "content-generator" | "quality-optimizer"

@@ -4,17 +4,17 @@
 - 如需整理结构或提取清单指导，可调用 Skill 工具并使用 `content-organizer`。
 
 输入资料：
-1) 高质量文章：files/source_articles/
-2) 对话记录：files/dialogue_records/
+1) 高质量文章：files/user/source_articles/
+2) 对话记录：files/user/dialogue_records/
 
 输出要求：
-A) 文章补充细节 → 写入 files/organized/article_details.md
+A) 文章补充细节 → 写入 files/agent/organized/article_details.md
 - 只提取可用于“面试题”发帖的补充细节：概念定义、机制原理、工程实践、数据指标、案例对比、常见误区、可复述观点。
 - 将信息转化为“可出题线索”：问题种子、考察点、回答要点、常见误区、可追问、边界条件。
 - 明确可区分候选人层级的要点（基础/进阶/专家）。
 - 不要复述全文，不要混入个人理解与困惑。
 
-B) 用户理解与困惑 → 写入 files/organized/dialogue_insights.md
+B) 用户理解与困惑 → 写入 files/agent/organized/dialogue_insights.md
 - 只提取用户在对话中的理解、疑问、目标受众/岗位、难度偏好、风格偏好与禁用项。
 - 记录用户希望的口吻（面试官/求职者视角）、语气强度（严谨/友好/犀利）。
 - 不要混入文章内容。

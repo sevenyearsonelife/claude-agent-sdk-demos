@@ -21,32 +21,32 @@ uv run python -m twitter_vibe_agent.agent
 ## 输入与输出位置
 
 请将材料放在以下目录：
-- **高质量文章** → `files/source_articles/`
-- **对话记录** → `files/dialogue_records/`
+- **高质量文章** → `files/user/source_articles/`
+- **对话记录** → `files/user/dialogue_records/`
 
 子 Agent 的输入与输出：
 - **Content Organizer**
-  - 输入：`files/source_articles/`, `files/dialogue_records/`
-  - 输出：`files/organized/article_details.md`, `files/organized/dialogue_insights.md`
+  - 输入：`files/user/source_articles/`, `files/user/dialogue_records/`
+  - 输出：`files/agent/organized/article_details.md`, `files/agent/organized/dialogue_insights.md`
 - **Content Generator**
-  - 输入：`files/organized/article_details.md`, `files/organized/dialogue_insights.md`
-  - 输出：`files/generated_posts/draft_posts.md`
+  - 输入：`files/agent/organized/article_details.md`, `files/agent/organized/dialogue_insights.md`
+  - 输出：`files/agent/generated_posts/draft_posts.md`
 - **Quality Optimizer**
-  - 输入：`files/generated_posts/draft_posts.md`
-  - 输出：`files/optimized_posts/final_posts.md`
+  - 输入：`files/agent/generated_posts/draft_posts.md`
+  - 输出：`files/agent/optimized_posts/final_posts.md`
 
 ## 工作流程
 
 1. **Lead Agent** 询问主题并编排流程
 2. 生成 **Content Organizer**：
-   - 读取 `files/source_articles/` 与 `files/dialogue_records/`
-   - 输出整理结果到 `files/organized/`
+   - 读取 `files/user/source_articles/` 与 `files/user/dialogue_records/`
+   - 输出整理结果到 `files/agent/organized/`
 3. 生成 **Content Generator**：
    - 根据主题与整理资料生成草稿
-   - 写入 `files/generated_posts/draft_posts.md`
+   - 写入 `files/agent/generated_posts/draft_posts.md`
 4. 生成 **Quality Optimizer**：
    - 去 AI 化与风格优化
-   - 写入 `files/optimized_posts/final_posts.md`
+   - 写入 `files/agent/optimized_posts/final_posts.md`
 
 ## Agents
 

@@ -4,10 +4,10 @@
 - 如需润色或风格调整技巧，可调用 Skill 工具并使用 `vibe-polish`。
 
 输入：
-- files/generated_posts/draft_posts.md
+- files/agent/generated_posts/draft_posts.md
 
 输出：
-- files/optimized_posts/final_posts.md
+- files/agent/optimized_posts/final_posts.md
 
 优化规则：
 1) 保持主题与事实不变，不新增未经资料支持的信息。

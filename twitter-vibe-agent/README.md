@@ -21,32 +21,32 @@ You can also create a local `.env` based on `.env.example`.
 ## Input & Output Locations
 
 Provide your materials here:
-- **High-quality articles** → `files/source_articles/`
-- **Dialogue records** → `files/dialogue_records/`
+- **High-quality articles** → `files/user/source_articles/`
+- **Dialogue records** → `files/user/dialogue_records/`
 
 Subagent inputs and outputs:
 - **Content Organizer**
-  - Inputs: `files/source_articles/`, `files/dialogue_records/`
-  - Outputs: `files/organized/article_details.md`, `files/organized/dialogue_insights.md`
+  - Inputs: `files/user/source_articles/`, `files/user/dialogue_records/`
+  - Outputs: `files/agent/organized/article_details.md`, `files/agent/organized/dialogue_insights.md`
 - **Content Generator**
-  - Inputs: `files/organized/article_details.md`, `files/organized/dialogue_insights.md`
-  - Outputs: `files/generated_posts/draft_posts.md`
+  - Inputs: `files/agent/organized/article_details.md`, `files/agent/organized/dialogue_insights.md`
+  - Outputs: `files/agent/generated_posts/draft_posts.md`
 - **Quality Optimizer**
-  - Inputs: `files/generated_posts/draft_posts.md`
-  - Outputs: `files/optimized_posts/final_posts.md`
+  - Inputs: `files/agent/generated_posts/draft_posts.md`
+  - Outputs: `files/agent/optimized_posts/final_posts.md`
 
 ## How It Works
 
 1. **Lead Agent** asks for the focus and orchestrates the pipeline
 2. Spawns **Content Organizer** to separate and structure inputs
-   - Reads `files/source_articles/` and `files/dialogue_records/`
-   - Outputs structured notes to `files/organized/`
+   - Reads `files/user/source_articles/` and `files/user/dialogue_records/`
+   - Outputs structured notes to `files/agent/organized/`
 3. Spawns **Content Generator** to draft tweets
    - Uses the focus + organized notes
-   - Writes drafts to `files/generated_posts/draft_posts.md`
+   - Writes drafts to `files/agent/generated_posts/draft_posts.md`
 4. Spawns **Quality Optimizer** to polish
    - De-AI style cleanup + clarity improvements
-   - Writes final posts to `files/optimized_posts/final_posts.md`
+   - Writes final posts to `files/agent/optimized_posts/final_posts.md`
 
 ## Agents
 

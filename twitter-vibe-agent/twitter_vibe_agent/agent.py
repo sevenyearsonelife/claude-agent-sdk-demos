@@ -26,11 +26,21 @@ def load_prompt(filename: str) -> str:
 
 
 def ensure_dirs() -> None:
-    (PROJECT_ROOT / "files" / "source_articles").mkdir(parents=True, exist_ok=True)
-    (PROJECT_ROOT / "files" / "dialogue_records").mkdir(parents=True, exist_ok=True)
-    (PROJECT_ROOT / "files" / "organized").mkdir(parents=True, exist_ok=True)
-    (PROJECT_ROOT / "files" / "generated_posts").mkdir(parents=True, exist_ok=True)
-    (PROJECT_ROOT / "files" / "optimized_posts").mkdir(parents=True, exist_ok=True)
+    (PROJECT_ROOT / "files" / "user" / "source_articles").mkdir(
+        parents=True, exist_ok=True
+    )
+    (PROJECT_ROOT / "files" / "user" / "dialogue_records").mkdir(
+        parents=True, exist_ok=True
+    )
+    (PROJECT_ROOT / "files" / "agent" / "organized").mkdir(
+        parents=True, exist_ok=True
+    )
+    (PROJECT_ROOT / "files" / "agent" / "generated_posts").mkdir(
+        parents=True, exist_ok=True
+    )
+    (PROJECT_ROOT / "files" / "agent" / "optimized_posts").mkdir(
+        parents=True, exist_ok=True
+    )
 
 
 async def chat() -> None:
@@ -103,8 +113,12 @@ async def chat() -> None:
     transcript.write("\n" + "=" * 52)
     transcript.write("  Twitter Vibe Agent")
     transcript.write("=" * 52)
-    transcript.write("\n输入你的需求，主 Agent 会先询问主题。")
+    transcript.write("\n主 Agent 将先询问主题。")
     transcript.write("输入 'exit' 退出。\n")
+
+    opening_question = "你好，请先说明你要生成的内容主题与目标受众。"
+    transcript.write(f"\nAgent: {opening_question}\n")
+    transcript.write_to_file(f"\nAgent: {opening_question}\n")
 
     try:
         async with ClaudeSDKClient(options=options) as client:
