@@ -43,14 +43,6 @@ uv.lock
 
 # Files folder structure (track folders, ignore contents)
 files/*
-!files/user/
-!files/agent/
-!files/user/source_articles/
-!files/user/dialogue_records/
-!files/agent/organized/
-!files/agent/generated_posts/
-!files/agent/optimized_posts/
-!files/**/.gitkeep
 
 # Session logs (ignore contents but track directory)
 logs/*
